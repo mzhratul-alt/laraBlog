@@ -22,4 +22,16 @@ class HelloController extends Controller
     public function categories(){
         return view('categories.createCategory');
     }
+
+    public function StoreCategory(Request $request){
+        // $insCat = [
+        //     'name' => $request->name,
+        //     'slug' => $request->slug,
+        // ];
+        $category=DB::table('categories')->insert($insCat);
+
+        if($category){
+            echo 'Done';
+        }
+    }
 }

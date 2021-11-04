@@ -12,3 +12,7 @@ Route::get('/hu..hu..ha...haaa', [HelloController::class, 'contact'])->name('con
 Route::get('createPost', [HelloController::class, 'postCreate']);
 
 Route::get('categories', [HelloController::class, 'categories']);
+
+
+//Category Crud
+Route::post('store/category',[HelloController::class, 'StoreCategory'])->name('store.category');
