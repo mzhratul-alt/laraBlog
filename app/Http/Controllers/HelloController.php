@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HelloController extends Controller
 {
@@ -24,14 +25,10 @@ class HelloController extends Controller
     }
 
     public function StoreCategory(Request $request){
-        // $insCat = [
-        //     'name' => $request->name,
-        //     'slug' => $request->slug,
-        // ];
-        $category=DB::table('categories')->insert($insCat);
-
-        if($category){
-            echo 'Done';
-        }
+        $insCat = [
+            'name' => $request->name,
+            'slug' => $request->slug,
+        ];
+        $category= DB::table('categories')->insert($insCat);
     }
 }
