@@ -6,7 +6,20 @@ use Illuminate\Http\Request;
 
 class HelloController extends Controller
 {
-    public function Test(){
-        echo "Hello World!";
+    public function index(){
+        return view('home');
+    }
+    public function about(){
+        return view('about');
+    }
+    public function contact(){
+        return view('contact');
+    }
+
+    public function postCreate(){
+        return view('post.createPost');
+    }
+    public function categories(){
+        return view('categories.createCategory');
     }
 }

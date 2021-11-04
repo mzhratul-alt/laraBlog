@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HelloController::class,'index']);
 
-Route::get('/about', [HelloController::class, 'Test']);
+Route::get('/about', [HelloController::class, 'about']);
+
+Route::get('/hu..hu..ha...haaa', [HelloController::class, 'contact'])->name('contact');
+
+Route::get('createPost', [HelloController::class, 'postCreate']);
+
+Route::get('categories', [HelloController::class, 'categories']);
