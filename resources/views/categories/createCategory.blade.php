@@ -24,6 +24,32 @@
                            <th>Action</th>
                         </tr>
                      </thead>
+                     <tbody>
+                         @foreach ($categories as $category)
+                            <tr>
+                                <td>
+                                    {{$loop->iteration}}
+                                </td>
+                                <td>
+                                    {{$category->name}}
+                                </td>
+                                <td>
+                                    {{$category->slug}}
+                                </td>
+                                <td>
+                                    <a href="{{url('category/view/'.$category->id)}}" class="btn btn-sm btn-info">
+                                        <i class="fas fa-binoculars"></i>
+                                    </a>
+                                    <a href="{{url('category/edit/'.$category->id)}}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="{{url('category/delete/'.$category->id)}}" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                         @endforeach
+                     </tbody>
                   </table>
                </div>
             </div>

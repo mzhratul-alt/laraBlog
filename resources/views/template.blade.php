@@ -12,8 +12,11 @@
    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
    <!-- Google fonts-->
-   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
+      type="text/css" />
+   <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet" type="text/css" />
    <!-- Core theme CSS (includes Bootstrap)-->
    <link href="{{ asset('frontend/css/styles.css') }}" rel="stylesheet" />
 </head>
@@ -23,7 +26,8 @@
    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
       <div class="container px-4 px-lg-5">
          <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
          </button>
@@ -33,16 +37,16 @@
                   <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('/') }}">Home</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url('about')}}">About</a>
+                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('about') }}">About</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url('createPost')}}">Create Post</a>
+                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('post') }}">Post</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url('categories')}}">Categories</a>
+                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('categories') }}">Categories</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{route('contact')}}">Contact</a>
+                  <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ route('contact') }}">Contact</a>
                </li>
             </ul>
          </div>
@@ -50,17 +54,17 @@
    </nav>
    <!-- Page Header-->
    <header class="masthead" style="background-image: url({{ asset('frontend/assets/img/home-bg.jpg') }})">
-    <div class="container position-relative px-4 px-lg-5">
-       <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-md-10 col-lg-8 col-xl-7">
-             <div class="site-heading">
-                @yield('pageHeader')
-                @yield('pageSubTitle')
-             </div>
-          </div>
-       </div>
-    </div>
- </header>
+      <div class="container position-relative px-4 px-lg-5">
+         <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+               <div class="site-heading">
+                  @yield('pageHeader')
+                  @yield('pageSubTitle')
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
    @yield('innerContent')
    <!-- Footer-->
    <footer class="border-top">
@@ -99,16 +103,31 @@
       </div>
    </footer>
    <!-- Bootstrap core JS-->
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
    <!-- Core theme JS-->
    <script src="{{ asset('frontend/js/scripts.js') }}"></script>
 
    <script>
-       // Display an info toast with no title
-toastr.success('Are you the 6 fingered man?')
-
+      @if (Session::has('message'))
+         var type="{{ Session::get('alert-type', 'info') }}"
+         switch(type){
+         case 'info':
+         toastr.info("{{ Session::get('message') }}");
+         break;
+         case 'success':
+         toastr.success("{{ Session::get('message') }}");
+         break;
+         case 'warning':
+         toastr.warning("{{ Session::get('message') }}");
+         break;
+         case 'error':
+         toastr.error("{{ Session::get('message') }}");
+         break;
+         }
+      @endif
    </script>
 </body>
 
