@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentController;
 
 Route::get('/', [HelloController::class,'index']);
 
@@ -13,6 +14,8 @@ Route::get('/hu..hu..ha...haaa', [HelloController::class, 'contact'])->name('con
 Route::get('post', [PostController::class, 'postIndex']);
 
 Route::get('categories', [HelloController::class, 'categories']);
+
+Route::get('student',[StudentController::class, 'studentIndex'])->name('student');
 
 
 //Category Crud
@@ -37,3 +40,7 @@ Route::get('post/edit/{id}',[PostController::class, 'postEdit']);
 Route::post('post/update/{id}', [PostController::class, 'postUpdate']);
 
 Route::get('post/delete/{id}', [PostController::class, 'postDelete']);
+
+
+//Student
+Route::post('student/store',[StudentController::class, 'studentStore'])->name('student.store');
