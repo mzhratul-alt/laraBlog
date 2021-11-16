@@ -29,3 +29,11 @@ Route::get('category/delete/{id}',[HelloController::class, 'categoryDelete']);
 
 //Post Crud
 Route::post('post/store',[PostController::class, 'postStore']);
+
+Route::get('post/view/{id}',[PostController::class, 'postSingleView']);
+
+Route::get('post/edit/{id}',[PostController::class, 'postEdit']);
+
+Route::post('post/update/{id}', [PostController::class, 'postUpdate']);
+
+Route::get('post/delete/{id}', [PostController::class, 'postDelete']);

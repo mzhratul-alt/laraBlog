@@ -52,22 +52,22 @@
                                  <img width="100" src="{{asset($post->image)}}" alt="f">
                               </td>
                               <td>
-                                 {{ $post->title }}
+                                 {{ $post->name }}
                               </td>
                               <td>
-                                 {{ $post->title }}
+                                 {{ $post->created_at }}
                               </td>
                               <td>
-                                 {{ $post->title }}
+                                 {{ $post->updated_at }}
                               </td>
                               <td>
-                                 <a href="{{ url('category/view/' . $post->id) }}" class="btn btn-sm btn-info">
+                                 <a href="{{ url('post/view/' . $post->id) }}" class="btn btn-sm btn-info">
                                     <i class="fas fa-binoculars"></i>
                                  </a>
-                                 <a href="{{ url('category/edit/' . $post->id) }}" class="btn btn-sm btn-warning">
+                                 <a href="{{ url('post/edit/' . $post->id) }}" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit"></i>
                                  </a>
-                                 <a href="{{ url('category/delete/' . $post->id) }}" class="btn btn-sm btn-danger">
+                                 <a href="{{ url('post/delete/' . $post->id) }}" class="btn btn-sm btn-danger">
                                     <i class="fas fa-trash"></i>
                                  </a>
                               </td>

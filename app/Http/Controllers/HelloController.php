@@ -10,7 +10,11 @@ class HelloController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $posts = DB::table('posts')
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->select('posts.*', 'categories.name')
+            ->paginate(2);
+        return view('home', ['posts' => $posts]);
     }
     public function about()
     {
